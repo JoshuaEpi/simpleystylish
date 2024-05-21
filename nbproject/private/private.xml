@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/OLIVER/Documents/NetBeansProjects/S&amp;S/web/Principal.jsp</file>
-            <file>file:/C:/Users/OLIVER/Documents/NetBeansProjects/S&amp;S/src/java/config/Conexion.java</file>
-            <file>file:/C:/Users/OLIVER/Documents/NetBeansProjects/S&amp;S/src/java/Controlar/Controlador.java</file>
-            <file>file:/C:/Users/OLIVER/Documents/NetBeansProjects/S&amp;S/src/java/Modelo/EmpleadoDAO.java</file>
-            <file>file:/C:/Users/OLIVER/Documents/NetBeansProjects/S&amp;S/src/java/Controlar/Validar.java</file>
-            <file>file:/C:/Users/OLIVER/Documents/NetBeansProjects/S&amp;S/web/index.jsp</file>
-            <file>file:/C:/Users/OLIVER/Documents/NetBeansProjects/S&amp;S/src/java/Modelo/Empleado.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/web/vistas/usuarios.jsp</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/web/vistas/index.jsp</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/web/vistas/nuevoUsuario.jsp</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/web/mensaje.jsp</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/web/identificar.jsp</file>
         </group>
     </open-files>
 </project-private>
