@@ -70,7 +70,7 @@ public class EmpleadoDAO extends Conexion {
         return empleados;
     }
 
-    /*Método para registrar un nuevo usuario en la base de datos*/
+    /*Método para registrar un nuevo empleado en la base de datos*/
     public void registrarUsuarios(usuario usu) throws Exception {
         String sql;
         sql = "INSERT INTO Usuario (NOMBREUSUARIO, CLAVE, ESTADO, IDCARGO) "
@@ -88,7 +88,7 @@ public class EmpleadoDAO extends Conexion {
         }
     }
 
-    /* Método para leer un usuario específico de la base de datos*/
+    /* Método para leer un empleado específico de la base de datos*/
     public usuario leerUsuario(usuario usu) throws Exception {
         usuario usus = null;
         ResultSet rs = null;
