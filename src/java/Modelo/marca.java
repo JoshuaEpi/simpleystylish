@@ -4,7 +4,7 @@
  */
 package Modelo;
 
-
+// Atributos de la clase marca
 public class marca {
     private int id_marca;
     private String nombreMarca;

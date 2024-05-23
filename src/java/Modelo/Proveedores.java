@@ -6,6 +6,8 @@ package Modelo;
 
 
 public class Proveedores {
+    
+    /* Atributos de la clase Proveedores*/
     private int id_proveedor;
     private String nombre;
     private String direccion;
@@ -13,6 +15,8 @@ public class Proveedores {
     private String ruc;
     private boolean estado;
 
+    
+    // Métodos para acceder y modificar el atributo id_proveedor
     public int getId_proveedor() {
         return id_proveedor;
     }
@@ -21,6 +25,7 @@ public class Proveedores {
         this.id_proveedor = id_proveedor;
     }
 
+    // Métodos para acceder y modificar el atributo nombre
     public String getNombre() {
         return nombre;
     }
@@ -29,6 +34,7 @@ public class Proveedores {
         this.nombre = nombre;
     }
 
+    // Métodos para acceder y modificar el atributo direccion
     public String getDireccion() {
         return direccion;
     }
@@ -37,6 +43,7 @@ public class Proveedores {
         this.direccion = direccion;
     }
 
+    // Métodos para acceder y modificar el atributo telefono
     public String getTelefono() {
         return telefono;
     }
@@ -45,6 +52,7 @@ public class Proveedores {
         this.telefono = telefono;
     }
 
+    // Métodos para acceder y modificar el atributo ruc
     public String getRuc() {
         return ruc;
     }
@@ -53,6 +61,7 @@ public class Proveedores {
         this.ruc = ruc;
     }
 
+    // Métodos para acceder y modificar el atributo estado
     public boolean isEstado() {
         return estado;
     }

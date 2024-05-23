@@ -6,6 +6,7 @@ package Modelo;
 
 
 public class productos {
+    // Atributos de la clase productos
     private int id_producto;
     private String nombreProducto;
     private String descripcion;
@@ -15,6 +16,7 @@ public class productos {
     private marca marca;
     private Proveedores proveedor;
 
+    // Métodos para acceder y modificar el atributo id_producto
     public int getId_producto() {
         return id_producto;
     }
