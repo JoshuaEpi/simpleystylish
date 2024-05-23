@@ -3,6 +3,7 @@ package Modelo;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 
@@ -71,13 +72,16 @@ public class EmpleadoDAO extends Conexion {
     }
 
     /*Método para registrar un nuevo empleado en la base de datos*/
-    public void registrarUsuarios(usuario usu) throws Exception {
+    public void registrarEmpleados(empleado emp) throws Exception {
         String sql;
-        sql = "INSERT INTO Usuario (NOMBREUSUARIO, CLAVE, ESTADO, IDCARGO) "
-                + "VALUES ('" + usu.getNombreUsuario() + "', '"
-                + usu.getClave() + "', "
-                + (usu.isEstado() == true ? "1" : "0")
-                + ", " + usu.getCargo().getCodigo() + ")";
+        sql = "INSERT INTO Empleado (NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHANACIMIENTO, TIPODOCUMENTO, NUMERODOCUMENTO,IDUSUARIO) "
+                + "VALUES ('" + emp.getNombre() + "', '"
+                + emp.getApellidos() + "', "
+                + emp.getSexo()+"',"
+                + emp.getTelefono()+"',"
+                + emp.getFechaNacimiento()+"',"
+                + emp.getTipoDocumento()+"',"
+                + ", " + emp.getUsuario().getId_usuario() + ")";
         try {
             this.conectar(false);
             this.ejecutarOrden(sql);
@@ -89,23 +93,29 @@ public class EmpleadoDAO extends Conexion {
     }
 
     /* Método para leer un empleado específico de la base de datos*/
-    public usuario leerUsuario(usuario usu) throws Exception {
-        usuario usus = null;
+    public empleado leerEmpleado(empleado emp) throws Exception {
+        empleado empl = null;
         ResultSet rs = null;
-        String sql = "SELECT U.IDUSUARIO, U.NOMBREUSUARIO, U.CLAVE, U.ESTADO, U.IDCARGO "
-                + "FROM usuario U WHERE U.IDUSUARIO = " + usu.getId_usuario();
+        String sql = "SELECT E.NOMBRE, E.APELLIDOS, E.SEXO, E.TELEFONO, "
+                + "E.FECHANACIMIENTO, E.TIPODOCUMENTO, "
+                + "E.NUMERODOCUMENTO, E.IDUSUARIO "
+                + "FROM empleado E WHERE E.IDUSUARIO  = " +  emp.getId_Empleado();
 
         try {
             this.conectar(false);
             rs = this.ejecutarOrdenDatos(sql);
             if (rs.next() == true) {
-                usus = new usuario();
-                usus.setId_usuario(rs.getInt("IDUSUARIO"));
-                usus.setNombreUsuario(rs.getString("NOMBREUSUARIO"));
-                usus.setClave(rs.getString("CLAVE"));
-                usus.setEstado(rs.getBoolean("ESTADO"));
-                usus.setCargo(new cargo());
-                usus.getCargo().setCodigo(rs.getInt("IDCARGO"));
+                empl = new empleado();
+                empl.setId_Empleado(rs.getInt("IDEMPLEADO"));
+                empl.setNombre(rs.getString("NOMBRE"));
+                empl.setApellidos(rs.getString("APELLIDOS"));
+                empl.setSexo(rs.getString("SEXO"));
+                empl.setTelefono(rs.getString("TELEFONO"));
+                empl.setFechaNacimiento(rs.getDate("FECHANACIMIENTO"));
+                empl.setTipoDocumento("TIPODOCUMENTO");
+                empl.setNumeroDocumento("NUMERODOCUMENTO");
+                empl.setUsuario(new usuario());
+                empl.getUsuario().setId_usuario(rs.getInt("IDUSUARIO"));
             }
             this.cerrar(true);
         } catch (Exception e) {
@@ -113,17 +123,19 @@ public class EmpleadoDAO extends Conexion {
             throw e;
         } finally {
         }
-        return usus;
+        return empl;
     }
-  /*Método para actualizar la información de un usuario en la base de datos*/
-    public void actualizarUsuarios(usuario usu) throws Exception {
-        String sql = "UPDATE usuario SET NOMBREUSUARIO = '"
-                + usu.getNombreUsuario() + "', CLAVE = '"
-                + usu.getClave() + "', ESTADO = "
-                + (usu.isEstado() == true ? "1" : "0")
-                + ", IDCARGO = "
-                + usu.getCargo().getCodigo()
-                + " WHERE IDUSUARIO = " + usu.getId_usuario();
+  /*Método para actualizar la información de un empleado en la base de datos*/
+    public void actualizarEmpleados(empleado emp) throws Exception {
+        String sql = "UPDATE empleado SET NOMBRE = '"
+                + emp.getNombre() + "', APELLIDOS = '"
+                + emp.getApellidos() + "', SEXO = "
+                + emp.getSexo() + "', TELEFONO = "
+                + emp.getTelefono() + "', FECHANACIMIENTO = "
+                + emp.getFechaNacimiento() + "', TIPODOCUMENTO"
+                + emp.getTipoDocumento() + "', NUMERODOCUMENTO"
+                + emp.getNumeroDocumento()
+                + " WHERE IDEMPLEADO = " + emp.getId_Empleado();
         try {
             this.conectar(false);
             this.ejecutarOrden(sql);
@@ -133,24 +145,10 @@ public class EmpleadoDAO extends Conexion {
             throw e;
         }
     }
-  /* Método para eliminar un usuario de la base de datos*/
-    public void eliminarUsuario(usuario usu) throws Exception {
-        String sql = "DELETE FROM USUARIO"
-                + " WHERE IDUSUARIO = " + usu.getId_usuario();
-        try {
-            this.conectar(false);
-            this.ejecutarOrden(sql);
-            this.cerrar(true);
-        } catch (Exception e) {
-            this.cerrar(false);
-            throw e;
-        }
-    }
-    /* Método para cambiar el estado de un usuario en la base de datos*/
-    public void cambiarVigencia(usuario usus) throws Exception {
-        String sql = "UPDATE usuario SET estado = "
-                + (usus.isEstado() == true ? "1" : "0")
-                + " WHERE idusuario = " + usus.getId_usuario();
+  /* Método para eliminar un empleado de la base de datos*/
+    public void eliminarEmpleado(empleado emp) throws Exception {
+        String sql = "DELETE FROM EMPLEADO"
+                + " WHERE IDEMPLEADO = " + emp.getId_Empleado();
         try {
             this.conectar(false);
             this.ejecutarOrden(sql);
