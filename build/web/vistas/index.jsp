@@ -8,7 +8,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Simple & Stylish| Inicio</title>
-        <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <!-- Font Awesome -->
@@ -17,10 +16,6 @@
         <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
         <!-- Theme style -->
         <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
-
-        <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-              page. However, you can choose any other skin. Make sure you
-              apply the skin class to the body tag so the changes take effect. -->
         <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -32,24 +27,24 @@
             <!-- Main Header -->
             <header class="main-header">
                 <a href="#" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
+               
                     <span class="logo-mini"><b>S</b>BL</span>
-                    <!-- logo for regular state and mobile devices -->
+ 
                     <span class="logo-lg"><b>Simple & Stylish </b>SAC</span>
                 </a>
 
-                <!-- Header Navbar -->
+                <!-- Barra de navegación -->
                 <nav class="navbar navbar-static-top" role="navigation">
-                    <!-- Sidebar toggle button-->
+         
                     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                         <span class="sr-only">Toggle navigation</span>
                     </a>
-                    <!-- Navbar Right Menu -->
+        
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            <!-- User Account Menu -->
+                            <!-- Menu cuenta usuario -->
                             <li class="dropdown user user-menu">
-                                <!-- Menu Toggle Button -->
+        
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
                                     <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -108,7 +103,7 @@
                     </form>
                     <!-- /.search form -->
 
-                    <!-- Sidebar Menu -->
+                    <!-- Menu barra lateral -->
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">INICIO</li>
                         <!-- Optionally, you can add icons to the links -->
@@ -253,13 +248,11 @@
         </div>
         <!-- ./wrapper -->
 
-        <!-- REQUIRED JS SCRIPTS -->
 
         <!-- jQuery 3 -->
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap 3.3.7 -->
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- AdminLTE App -->
         <script src="dist/js/adminlte.min.js"></script>
 
     </body>
