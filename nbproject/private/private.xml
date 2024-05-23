@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/web/vistas/index.jsp</file>
-            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/web/vistas/usuarios.jsp</file>
-            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Controlador/srvUsuario.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/cargo.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/UsuarioDAO.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/CategoriaDAO.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/marca.java</file>
             <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/empleado.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/MarcaDAO.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/usuario.java</file>
             <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/EmpleadoDAO.java</file>
-            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Controlador/srvEmpleado.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/categoria.java</file>
+            <file>file:/C:/Users/OLIVER/Desktop/INTEGRADOR/Proyecto_Integrador/src/java/Modelo/CargoDAO.java</file>
         </group>
     </open-files>
 </project-private>
