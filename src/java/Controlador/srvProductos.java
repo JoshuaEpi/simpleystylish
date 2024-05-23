@@ -7,29 +7,62 @@ package Controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+@WebServlet(name = "srvProductos", urlPatterns = {"/srvProducto"})
 public class srvProductos extends HttpServlet {
 
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet srvProductos</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet srvProductos at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String accion = request.getParameter("accion");
+        try {
+            if (accion != null) {
+                switch (accion) {
+                    case "verificar":
+                        verificar(request, response);
+                        break;
+                    case "cerrar":
+                        cerrarsession(request, response);
+                    case "listarUsuarios":
+                        listarProductos(request, response);
+                        break;
+                    case "nuevo":
+                        presentarFormulario(request, response);
+                        break;
+                    case "registrar":
+                        registrarProductos(request, response);
+                        break;
+                    case "leerUsuario":
+                        presentarProducto(request, response);
+                        break;
+                    case "actualizarUsuario":
+                        actualizarProducto(request, response);
+                        break;
+                    case "eliminarUsuario":
+                        eliminarProducto(request, response);
+                        break;
+                    default:
+                        response.sendRedirect("identificar.jsp");
+                }
+            } else if (request.getParameter("cambiar") != null) {
+                cambiarEstado(request, response);
+            } else {
+                response.sendRedirect("identificar.jsp");
+            }
+        } catch (Exception e) {
+            try {
+                this.getServletConfig().getServletContext().getRequestDispatcher("/mensaje.jsp").forward(request, response);
+
+            } catch (Exception ex) {
+                System.out.println("Error" + e.getMessage());
+            }
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -70,5 +103,41 @@ public class srvProductos extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void verificar(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cerrarsession(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void listarProductos(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void presentarFormulario(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void registrarProductos(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void presentarProducto(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void actualizarProducto(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void eliminarProducto(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cambiarEstado(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }
