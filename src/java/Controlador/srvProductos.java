@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "srvProductos", urlPatterns = {"/srvProducto"})
+@WebServlet(name = "srvProductos", urlPatterns = {"/srvProductos"})
 public class srvProductos extends HttpServlet {
 
    
@@ -28,7 +28,7 @@ public class srvProductos extends HttpServlet {
                         break;
                     case "cerrar":
                         cerrarsession(request, response);
-                    case "listarUsuarios":
+                    case "listarProductos":
                         listarProductos(request, response);
                         break;
                     case "nuevo":
@@ -37,13 +37,13 @@ public class srvProductos extends HttpServlet {
                     case "registrar":
                         registrarProductos(request, response);
                         break;
-                    case "leerUsuario":
+                    case "leerProducto":
                         presentarProducto(request, response);
                         break;
-                    case "actualizarUsuario":
+                    case "actualizarProducto":
                         actualizarProducto(request, response);
                         break;
-                    case "eliminarUsuario":
+                    case "eliminarProducto":
                         eliminarProducto(request, response);
                         break;
                     default:

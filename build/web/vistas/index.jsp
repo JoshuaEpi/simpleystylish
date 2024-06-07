@@ -117,10 +117,10 @@
                             <ul class="treeview-menu">
                                 <li><a href="#"><i class="fa fa-archive"></i>Categorias</a></li>
                                 <li><a href="#"><i class="fa fa-tags"></i>Marcas</a></li>
-                                <li><a href="#"><i class="fa fa-cube"></i>Productos</a></li>
+                                <li><a href="srvProductos?accion=listarProductos"><i class="fa fa-address-card"></i>Productos</a></li>
                                 <li><a href="#"><i class="fa fa-users"></i>Clientes</a></li>
                                 <li><a href="#"><i class="fa fa-truck"></i>Proveedores</a></li>
-                                <li><a href=""><i class="fa fa-user-plus"></i>Empleados</a></li>
+                                <li><a href="srvEmpleado?accion=listarEmpleados"><i class="fa fa-user-plus"></i>Empleados</a></li>
                                 <li><a href="srvUsuario?accion=listarUsuarios"><i class="fa fa-address-card"></i>Usuarios</a></li>
                             </ul>
                         </li>

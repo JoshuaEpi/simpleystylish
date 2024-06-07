@@ -34,7 +34,7 @@ public class srvProveedores extends HttpServlet {
                     case "registrar":
                         registrarProveedores(request, response);
                         break;
-                    case "leerUsuario":
+                    case "leerProveedores":
                         presentarProveedores(request, response);
                         break;
                     case "actualizarProveedores":
