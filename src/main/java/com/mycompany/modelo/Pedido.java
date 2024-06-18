@@ -3,17 +3,19 @@ package com.mycompany.modelo;
 import java.util.ArrayList;
 
 public class Pedido {
-    private int idPedido;
-    private Cliente cliente;
-    private double total;
-    private String fecha;
-    private String estado;
-    private ArrayList<DetallePedido> detalles;
+    // Campos privados que representan la información de un pedido
+    private int idPedido;// Identificador único del pedido
+    private Cliente cliente;// Cliente que realizó el pedido
+    private double total;// Total del pedido
+    private String fecha;// Fecha en la que se realizó el pedido
+    private String estado;// Estado actual del pedido (pendiente, entregado)
+    private ArrayList<DetallePedido> detalles;// Lista de detalles asociados al pedido
 
+    // Métodos getters y setters para acceder y modificar los campos privados
     public int getIdPedido() {
         return idPedido;
     }
-
+    
     public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
     }

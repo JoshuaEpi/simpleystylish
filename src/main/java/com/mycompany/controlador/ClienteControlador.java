@@ -10,14 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ClienteControlador extends HttpServlet {
-
+    // Ruta a la página JSP para registrar un nuevo cliente
     private final String pagNuevo = "PagRegistrarCliente.jsp";
+    // Instancia del DAO de clientes para manejar operaciones de la base de datos relacionadas con clientes
     private ClienteDAO cliDao = new ClienteDAO();
-
+    // Método que procesa todas las solicitudes HTTP (GET y POST)
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        // Obtiene el parámetro "accion" de la solicitud
         String accion = request.getParameter("accion");
 
         switch (accion) {
@@ -31,20 +32,20 @@ public class ClienteControlador extends HttpServlet {
                 throw new AssertionError();
         }
     }
-
+    // Método para guardar un nuevo cliente
     protected void Guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        // Crea una nueva instancia de Cliente y establece sus atributos con los parámetros de la solicitud
         Cliente obj = new Cliente();
         obj.setNombres(request.getParameter("nombres"));
         obj.setApellidos(request.getParameter("apellidos"));
         obj.setTelefono(request.getParameter("telefono"));
         obj.setCorreo(request.getParameter("correo"));
         obj.setPassword(request.getParameter("password"));
-
+        // Verifica si el correo ya está registrado
         if (cliDao.ExisteCorreo(obj.getCorreo().trim()) == false) {
-            int result = cliDao.Guardar(obj);
+            int result = cliDao.Guardar(obj);// Guarda el cliente en la base de datos
 
             if (result > 0) {
                 request.getSession().setAttribute("success", "Cuenta registrada!");
@@ -61,12 +62,12 @@ public class ClienteControlador extends HttpServlet {
         request.setAttribute("cliente", obj);
         request.getRequestDispatcher(pagNuevo).forward(request, response);
     }
-
+    // Método para mostrar el formulario de registro de un nuevo cliente
     protected void Nuevo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setAttribute("cliente", new Cliente());
-        request.getRequestDispatcher(pagNuevo).forward(request, response);
+        request.setAttribute("cliente", new Cliente());// Establece un nuevo cliente vacío como atributo de la solicitud
+        request.getRequestDispatcher(pagNuevo).forward(request, response);// Redirige a la página de registro de cliente
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

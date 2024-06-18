@@ -13,17 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class CarritoControlador extends HttpServlet {
-
-    private String PagListarCarrito = "PagCarrito.jsp";
-    private String PagInicio = "index.jsp";
-    private ProductoDAO prodDao = new ProductoDAO();
-    private Carrito objCarrito = new Carrito();
-
+    
+    private String PagListarCarrito = "PagCarrito.jsp";// Ruta a la página que muestra el carrito de compras
+    private String PagInicio = "index.jsp";// Ruta a la página de inicio
+    private ProductoDAO prodDao = new ProductoDAO();// Instancia del DAO de productos para manejar operaciones relacionadas con productos
+    private Carrito objCarrito = new Carrito();// Instancia del objeto Carrito para manejar el carrito de compras
+    // Método que procesa todas las solicitudes HTTP (GET y POST)
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String accion = request.getParameter("accion");
+        String accion = request.getParameter("accion");// Obtiene el parámetro "accion" de la solicitud
 
         switch (accion) {
             case "listar":
@@ -39,17 +39,17 @@ public class CarritoControlador extends HttpServlet {
                 throw new AssertionError();
         }
     }
-
+    // Método para eliminar un ítem del carrito
     protected void Eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int indice = Integer.parseInt(request.getParameter("indice"));
+        int indice = Integer.parseInt(request.getParameter("indice"));// Obtiene el índice del ítem a eliminar desde la solicitud
         
-        objCarrito.RemoverItemCarrito(request, indice);
+        objCarrito.RemoverItemCarrito(request, indice);// Remueve el ítem del carrito
         
-        response.sendRedirect("CarritoControlador?accion=listar");
+        response.sendRedirect("CarritoControlador?accion=listar");// Redirige a la acción de listar el carrito después de eliminar el ítem
     }
-
+    // Método para agregar un producto al carrito
     protected void Agregar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -65,13 +65,15 @@ public class CarritoControlador extends HttpServlet {
         }
         request.getRequestDispatcher(PagInicio).forward(request, response);
     }
-
+    // Método para listar los ítems en el carrito
     protected void Listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ArrayList<DetallePedido> lista = objCarrito.ObtenerSesion(request);
+        ArrayList<DetallePedido> lista = objCarrito.ObtenerSesion(request);// Obtiene la lista de detalles de pedido desde la sesión
+        // Establece la lista de ítems y el total como atributos de la solicitud
         request.setAttribute("carrito", lista);
         request.setAttribute("total", objCarrito.ImporteTotal(lista));
+        // Redirige a la página que muestra el carrito de compras
         request.getRequestDispatcher(PagListarCarrito).forward(request, response);
     }
 

@@ -14,18 +14,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class PedidoControlador extends HttpServlet {
-
+    // Instancia del DAO de pedidos para manejar operaciones de la base de datos relacionadas con pedidos
     private PedidoDAO pedidoDao = new PedidoDAO();
+    // Instancia del objeto Carrito para manejar el carrito de compras
     private Carrito objCarrito = new Carrito();
+    // Rutas a las páginas JSP relevantes
     private final String pagLogin = "PagLogin.jsp";
     private final String pagCarrito = "PagCarrito.jsp";
     private final String pagMisPedidos = "PagMisPedidos.jsp";
-
+    // Método que procesa todas las solicitudes HTTP (GET y POST)
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String accion = request.getParameter("accion");
+        String accion = request.getParameter("accion");// Obtiene el parámetro "accion" de la solicitud
 
         switch (accion) {
             case "procesar":
@@ -38,13 +40,14 @@ public class PedidoControlador extends HttpServlet {
                 throw new AssertionError();
         }
     }
-
+    // Método para listar los pedidos del usuario
     protected void MisPedidos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        // Verifica si el usuario está autenticado
         if (request.getSession().getAttribute("usuario") != null) {
             Cliente objCli = (Cliente) request.getSession().getAttribute("usuario");
-            ArrayList<Pedido> listaPed = pedidoDao.ListarPorIdCliente(objCli.getIdCliente());
+            ArrayList<Pedido> listaPed = pedidoDao.ListarPorIdCliente(objCli.getIdCliente());// Obtiene la lista de pedidos del usuario
             request.setAttribute("pedidos", listaPed);
             request.getRequestDispatcher(pagMisPedidos).forward(request, response);
         } else {
@@ -52,23 +55,23 @@ public class PedidoControlador extends HttpServlet {
         }
 
     }
-
+    // Método para procesar un pedido
     protected void Procesar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        // Verifica si el usuario está autenticado
         if (request.getSession().getAttribute("usuario") != null) {
             Pedido objPed = new Pedido();
             Cliente objCli = (Cliente) request.getSession().getAttribute("usuario");
             ArrayList<DetallePedido> lista = objCarrito.ObtenerSesion(request);
             double total = objCarrito.ImporteTotal(lista);
-
+            // Establece los atributos del pedido
             objPed.setCliente(objCli);
             objPed.setDetalles(lista);
             objPed.setTotal(total);
             objPed.setEstado("Pendiente");
 
-            int result = pedidoDao.GenerarPedido(objPed);
+            int result = pedidoDao.GenerarPedido(objPed);// Genera el pedido en la base de datos
 
             if (result > 0) {
                 objCarrito.GuardarSesion(request, new ArrayList<DetallePedido>());
