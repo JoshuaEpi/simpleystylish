@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 public class Conexion {
     private static String database="bd_carrito";
     private static String username="root";
-    private static String password="1234";
+    private static String password="";
     private static String url="jdbc:mysql://localhost:3306/"+ database;
     
     public static Connection getConnection(){
