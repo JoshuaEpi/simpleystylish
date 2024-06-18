@@ -1,7 +1,8 @@
 package com.mycompany.modelo;
 
 public class Cliente {
-
+    
+    // Campos privados que almacenan la información del cliente
     private int idCliente;
     private String nombres;
     private String apellidos;
@@ -9,10 +10,11 @@ public class Cliente {
     private String correo;
     private String password;
     
+    // Método para obtener los nombres completos del cliente en mayúsculas
     public String nombresCompletos(){
         return (nombres + " " + apellidos).toUpperCase();
     }
-
+    // Métodos getters y setters para acceder y modificar los campos privados
     public int getIdCliente() {
         return idCliente;
     }

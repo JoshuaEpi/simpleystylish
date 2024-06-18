@@ -3,11 +3,12 @@ package com.mycompany.modelo;
 
 
 public class Producto {
-    private int idProd;
-    private String nombre;
-    private double precio;
-    private String imagen;
-
+    private int idProd; // Identificador único del producto
+    private String nombre; // Nombre del producto
+    private double precio; // Precio del producto
+    private String imagen; // Ruta o nombre de archivo de la imagen del producto
+    
+    // Métodos getters y setters para acceder y modificar los campos privados
     public int getIdProd() {
         return idProd;
     }

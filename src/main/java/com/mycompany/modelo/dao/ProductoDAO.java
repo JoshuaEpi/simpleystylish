@@ -1,6 +1,6 @@
 package com.mycompany.modelo.dao;
 
-import com.mycompany.config.Conexion;
+import com.mycompany.config.Conexion;// Importación de la clase de configuración de conexión
 import com.mycompany.modelo.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class ProductoDAO {
 
-    private Connection cn = null;
-    private PreparedStatement ps = null;
-    private ResultSet rs = null;
+    private Connection cn = null;// Objeto de conexión a la base de datos
+    private PreparedStatement ps = null;// Objeto para ejecutar consultas preparadas
+    private ResultSet rs = null;// Objeto para almacenar resultados de consultas
 
     public ArrayList<Producto> ListarTodos() {
         ArrayList<Producto> lista = new ArrayList<Producto>();

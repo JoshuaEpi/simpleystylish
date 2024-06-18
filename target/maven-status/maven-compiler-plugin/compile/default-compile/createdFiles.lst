@@ -1,3 +1,4 @@
+mail\SMTP2.class
 com\mycompany\modelo\dao\ProductoDAO.class
 com\mycompany\controlador\AuthControlador.class
 com\mycompany\config\Conexion.class
@@ -8,9 +9,12 @@ com\mycompany\modelo\DetallePedido.class
 com\mycompany\modelo\Pedido.class
 com\mycompany\app\AppInicializar.class
 com\mycompany\util\Carrito.class
+mail\SMTP$1.class
+mail\SMTP.class
 com\mycompany\modelo\Cliente.class
 com\mycompany\config\Test.class
 com\mycompany\modelo\dao\PedidoDAO.class
+mail\SMTP2$1.class
 com\mycompany\controlador\CarritoControlador.class
 com\mycompany\controlador\PedidoControlador.class
 com\mycompany\modelo\dao\ClienteDAO.class

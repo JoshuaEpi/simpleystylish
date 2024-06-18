@@ -14,13 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class PedidoControlador extends HttpServlet {
-
+    // Instancia del DAO de pedidos para manejar operaciones de la base de datos relacionadas con pedidos
     private PedidoDAO pedidoDao = new PedidoDAO();
-    private Carrito objCarrito = new Carrito();
+    private Carrito objCarrito = new Carrito();// Instancia del objeto Carrito para manejar el carrito de compras
+    // Rutas a las páginas JSP
     private final String pagLogin = "PagLogin.jsp";
     private final String pagCarrito = "PagCarrito.jsp";
     private final String pagMisPedidos = "PagMisPedidos.jsp";
-
+    // Método que procesa todas las solicitudes HTTP (GET y POST)
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,7 +39,7 @@ public class PedidoControlador extends HttpServlet {
                 throw new AssertionError();
         }
     }
-
+    // Método para listar los pedidos del usuario
     protected void MisPedidos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -52,7 +53,7 @@ public class PedidoControlador extends HttpServlet {
         }
 
     }
-
+    // Método para procesar un pedido
     protected void Procesar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -68,6 +69,7 @@ public class PedidoControlador extends HttpServlet {
             objPed.setTotal(total);
             objPed.setEstado("Pendiente");
 
+            // Genera el pedido en la base de datos
             int result = pedidoDao.GenerarPedido(objPed);
 
             if (result > 0) {
@@ -82,7 +84,7 @@ public class PedidoControlador extends HttpServlet {
                 request.getRequestDispatcher(pagCarrito).forward(request, response);
             }
 
-        } else {
+        } else { // Si el usuario no está autenticado, establece un mensaje de error y redirige a la página de login
             request.getSession().setAttribute("error", "Debe autentificarse primero,"
                     + " antes de procesar su compra");
             request.getRequestDispatcher(pagLogin).forward(request, response);
