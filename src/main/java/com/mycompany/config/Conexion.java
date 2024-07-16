@@ -9,7 +9,7 @@ public class Conexion {
     // Datos de conexión a la base de datos
     private static String database="bd_carrito";
     private static String username="root";
-    private static String password="1234";
+    private static String password="";
     private static String url="jdbc:mysql://localhost:3306/"+ database;
     // Método estático para obtener una conexión a la base de datos
     public static Connection getConnection(){
