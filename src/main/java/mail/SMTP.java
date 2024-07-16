@@ -36,7 +36,7 @@ public class SMTP {
             // Crea un mensaje de correo
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("oliver4185@gmail.com"));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("fertello2561@gmail.com"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress("sebas.171919@gmail.com"));
             message.setSubject("Bienvenido a Simple and Stylish");
 
             // Parte del cuerpo del mensaje que contiene el texto
